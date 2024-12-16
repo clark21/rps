@@ -1,11 +1,9 @@
 <?php
 
-include_once (__DIR__ . '/src/PlayerOne.php');
-include_once (__DIR__ . '/src/PlayerTwo.php');
 include_once (__DIR__ . '/src/Game.php');
 
-$player1 = new PlayerOne('Clark'); // uses rock only
-$player2 = new PlayerTwo('Charles'); // uses rock, paper and scissor
+$player1 = new Player('Clark'); // uses rock only
+$player2 = new Player('Charles'); // uses rock, paper and scissor
 
 $game = new Game();
 

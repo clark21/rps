@@ -53,7 +53,7 @@ class Game {
      * @params integer $rounds
      * @returns void
      */
-    public function start($rounds = 1) {
+    public function start(Int $rounds = 1) {
         if (count($this->players) != 2) {
             throw new \Exception("We need two players to start the game");
         }
@@ -98,37 +98,21 @@ class Game {
         list($handOne, $handTwo) = $hands;
         // check if the same,
         // this means draw
-        if ($handOne == $handTwo) {
+        if ($handOne === $handTwo) {
               $this->draw++;
               return null;
         }
 
-        // compare hands
-        // returns winning plyaer object
-        switch (implode(':', $hands)) {
-          case 'rock:paper':
-              return $this->players[1];
-              break;
-          case 'rock:scissor':
-              return $this->players[0];
-              break;
-          case 'paper:rock':
-              return $this->players[0];
-              break;
-          case 'paper:scissor':
-              return $this->players[1];
-              break;
-          case 'scissor:paper':
-              return $this->players[0];
-              break;
-          case 'scissor:rock':
-              return $this->players[1];
-              break;
-          default:
-              $this->draw++;
-              return null;
-              break;
+        $winningCombinations = [
+            'rock' => 'scissor',
+            'scissor' => 'paper',
+            'paper' => 'rocket'
+        ];
+
+        if ($winningCombinations[$handOne] == $handTwo) {
+            return $this->players[0];
         }
 
+        return $this->players[1];
     }
 }
