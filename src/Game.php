@@ -106,7 +106,7 @@ class Game {
         $winningCombinations = [
             'rock' => 'scissor',
             'scissor' => 'paper',
-            'paper' => 'rocket'
+            'paper' => 'rock'
         ];
 
         if ($winningCombinations[$handOne] == $handTwo) {
