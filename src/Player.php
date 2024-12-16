@@ -23,6 +23,9 @@ class Player implements PlayerInterface{
         $this->name = $name;
         $this->hand = $hand;
         $this->choices = Game::getChoices();
+        if ($this->hand && !in_array($this->hand, $this->choices)) {
+            throw new \Exception(sprintf('Invalid hand value', $this->hand));
+        }
         
     }
 
